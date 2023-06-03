@@ -1,0 +1,5 @@
+env_name: "densemountaincar-dt10-v0"
+_target_: ucb.wrappers.Wrapper
+fit_data_path: data/random_mountaincar.hdf5
+gp_params: ~
+  # fit_data_path: data/pets_cartpole.npz

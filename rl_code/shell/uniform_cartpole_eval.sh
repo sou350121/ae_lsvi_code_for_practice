@@ -1,0 +1,2 @@
+python evaluate_policy.py name=LSVI_shifted_uniform_dense_cartpole_eval env=dense_shift_cartpole expt_dir=experiments/LSVI_dense_uniform_cartpole_2022-09-26/15-44-56/seed_0/
+python evaluate_policy.py name=greedy_shifted_uniform_dense_cartpole_eval env=dense_shift_cartpole expt_dir=experiments/greedy_dense_uniform_cartpole_2022-09-25/10-39-49/seed_0/

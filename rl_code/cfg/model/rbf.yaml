@@ -1,0 +1,3 @@
+_target_: ucb.models.RBFGP
+noise: 0.01
+jitter: 0.01

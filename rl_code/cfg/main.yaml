@@ -1,0 +1,24 @@
+defaults:
+    - _self_
+    - env: cartpole
+    - q@q_expl: q_ucb
+    - q@q_eval: q_eval
+    - expl_fn: rollout
+    - model: rbf
+    - trainer: gp_trainer
+seed: 0
+name: "default"
+num_expl_episodes: 40
+random_burn_in: 2
+eval_fn:
+  _target_: ucb.util.eval_time_varying_policy
+  num_trials: 10
+
+hydra:
+  job:
+    name: ${name}
+  run:
+      dir: experiments/${name}_${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+      dir: experiments/${name}_${now:%Y-%m-%d}/${now:%H-%M-%S}
+      subdir: seed_${hydra.job.num}

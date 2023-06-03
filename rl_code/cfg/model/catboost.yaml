@@ -1,0 +1,9 @@
+_target_: ucb.models.PECatboost
+num_samples: 10
+bootstrap: True
+model:
+    _target_: catboost.CatBoostRegressor
+    silent: True
+    loss_function: "RMSEWithUncertainty"
+    posterior_sampling: True
+val_fraction: 0.1

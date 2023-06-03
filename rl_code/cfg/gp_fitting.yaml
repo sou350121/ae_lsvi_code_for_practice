@@ -1,0 +1,44 @@
+defaults:
+    - _self_
+    - env: cartpole
+    - q: q_eval
+    - override hydra/sweeper: ax
+      # - override hydra/launcher: joblib
+name: cartpole
+test_set_size: 100
+skip_size: 500
+hydra:
+  job:
+    name: ${name}
+  run:
+      dir: experiments/gp_${name}_${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweeper:
+    # The following part of config is used to setup the Hydra Ax plugin and is optional
+    ax_config:
+
+      # max_trials is application-specific. Tune it for your use case
+      max_trials: 50
+
+      experiment:
+        # Default to minimize, set to false to maximize
+        minimize: true
+
+      early_stop:
+        # Number of epochs without a significant improvement from
+        # the currently known best parameters
+        # An Epoch is defined as a batch of trials executed in parallel
+        max_epochs_without_improvement: 10
+        minimize: true
+        epsilon: 0.0
+
+      # the synthetic measurements in this example have 0 error
+      # which is specified by setting is_noisy to false
+      is_noisy: false
+
+      params:
+        q.gp.noise:
+          type: range
+          bounds: [0, 0.5]
+        q.gp.jitter:
+          type: range
+          bounds: [0.25, 0.9]

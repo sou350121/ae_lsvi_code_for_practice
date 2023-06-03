@@ -1,0 +1,11 @@
+defaults:
+    - _self_
+    - env: mountaincar
+      # - override hydra/launcher: joblib
+name: mountaincar
+num_rollouts: 40
+hydra:
+  job:
+    name: ${name}
+  run:
+      dir: datasets/random_${name}_${now:%Y-%m-%d}/${now:%H-%M-%S}

@@ -1,0 +1,5 @@
+_target_: ucb.value_functions.USQRegressor
+beta: 0.
+use_all_data: True
+sample_visited_states: False
+nsamps: 1000

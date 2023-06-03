@@ -1,0 +1,6 @@
+_target_: ucb.value_functions.UCBLCBQRegressor
+beta_ucb: 0.5
+beta_lcb: -0.5
+use_all_data: True
+nsamps: 1000
+sample_visited_states: False

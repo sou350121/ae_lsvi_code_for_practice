@@ -1,0 +1,5 @@
+_target_: ucb.models.PNN
+features: [256, 256, 256, 256]
+logvar_lb: -3
+logvar_ub: 3
+logvar_loss_coef: 0.01

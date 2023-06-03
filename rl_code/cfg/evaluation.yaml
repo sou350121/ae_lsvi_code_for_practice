@@ -1,0 +1,21 @@
+defaults:
+    - _self_
+    - env: cartpole
+    - q@q_eval: q_eval
+    - model: rbf
+    - trainer: gp_trainer
+seed: 0
+name: "default_eval"
+expt_dir: experiments/FOVI_dense_cartpole_2022-09-20/15-09-50/seed_0/
+eval_fn:
+  _target_: ucb.util.eval_time_varying_policy
+  num_trials: 50
+
+hydra:
+  job:
+    name: ${name}
+  run:
+      dir: experiments/${name}_${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+      dir: experiments/${name}_${now:%Y-%m-%d}/${now:%H-%M-%S}
+      subdir: seed_${hydra.job.num}

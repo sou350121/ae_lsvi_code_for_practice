@@ -1,0 +1,5 @@
+env_name: "dense-shift-cartpoleswingup-v0"
+_target_: ucb.wrappers.DiscreteActionWrapper
+dim_num_bins: 10
+fit_data_path: ~
+gp_params: ~

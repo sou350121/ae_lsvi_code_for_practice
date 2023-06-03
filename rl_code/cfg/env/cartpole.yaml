@@ -1,0 +1,5 @@
+env_name: "cartpoleswingup-v0"
+_target_: ucb.wrappers.DiscreteActionWrapper
+dim_num_bins: 10
+fit_data_path: data/pets_cartpole.npz
+gp_params: experiments/gp_cartpole_2022-09-02/14-03-07/params.pkl

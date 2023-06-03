@@ -1,0 +1,3 @@
+env_name: "ourreacher-v0"
+_target_: ucb.wrappers.DiscreteActionWrapper
+dim_num_bins: 7
